@@ -12,8 +12,18 @@ public class UserServiceImpl implements IUserService {
     private UserDao userDao;
 
     @Override
-    public User findUser(String id) {
-        final User user = userDao.findUser(id);
-        return user;
+    public User login(String username) {
+        return userDao.login(username);
     }
+
+    @Override
+    public User findUser(String id) {
+        return userDao.findUser(id);
+    }
+
+    @Override
+    public boolean saveUser(User user) {
+        return userDao.saveUser(user) > 0;
+    }
+
 }
