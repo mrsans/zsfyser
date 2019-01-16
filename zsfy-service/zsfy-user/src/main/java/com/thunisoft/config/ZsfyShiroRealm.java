@@ -19,7 +19,7 @@ import java.util.Set;
  * @Version 1.0
  * @Description:
  */
-public class MyShiroRealm extends AuthorizingRealm {
+public class ZsfyShiroRealm extends AuthorizingRealm {
 
     @Autowired
     private IUserService userService;

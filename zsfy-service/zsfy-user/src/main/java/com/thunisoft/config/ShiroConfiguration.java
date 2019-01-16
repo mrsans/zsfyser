@@ -23,9 +23,9 @@ public class ShiroConfiguration extends DefaultWebSessionManager {
 
     //将自己的验证方式加入容器
     @Bean
-    public MyShiroRealm myShiroRealm() {
-        MyShiroRealm myShiroRealm = new MyShiroRealm();
-        return myShiroRealm;
+    public ZsfyShiroRealm myShiroRealm() {
+        ZsfyShiroRealm zsfyShiroRealm = new ZsfyShiroRealm();
+        return zsfyShiroRealm;
     }
 
     @Bean(value = "securityManger")

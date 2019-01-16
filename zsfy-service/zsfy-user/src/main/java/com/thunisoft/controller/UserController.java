@@ -1,5 +1,6 @@
 package com.thunisoft.controller;
 
+import com.alibaba.druid.support.spring.stat.SpringStatUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thunisoft.bean.User;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 public class UserController {
@@ -35,11 +37,8 @@ public class UserController {
         token.setRememberMe(true);
         Subject subject = SecurityUtils.getSubject();
         subject.login(token);
-
-//        return userService.findUser(username);
         return stringRedisTemplate.opsForValue().get("user1");
     }
-
 
     @PostMapping(path = "/save")
     @ResponseBody
@@ -47,8 +46,8 @@ public class UserController {
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("success", userService.saveUser(user));
         stringRedisTemplate.opsForValue().set("user1", objectMapper.writeValueAsString(user));
+
         return resultMap;
     }
-
 
 }
