@@ -12,6 +12,8 @@
         <module>zsfy-eureka</module>
         <module>zsfy-gateway</module>
         <module>zsfy-service</module>
+        <module>zsfy-pojo</module>
+        <module>zsfy-common</module>
     </modules>
 
     <parent>
